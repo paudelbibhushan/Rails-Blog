@@ -1,8 +1,9 @@
 class BlogPostsController < ApplicationController
-    
+     
+    before_action :authenticate_user! , except: [:index,:show]
      before_action :set_blog_post , only: [:show,:edit ,:update,:destroy]   
     #  before_action :set_blog_post ,except[:index,:new,:create]  
-
+   
     def index
         @blog_posts = BlogPost.all
         # just saving all the blogposts in an instance variable
@@ -50,10 +51,8 @@ class BlogPostsController < ApplicationController
         redirect_to root_path
     end
  
-
-
-
     private
+    
     def blog_post_params
         params.require(:blog_post).permit(:title,:body)
     end
@@ -61,5 +60,6 @@ class BlogPostsController < ApplicationController
     def set_blog_post
         @blog_post = BlogPost.find(params[:id])
     end
+
 
 end
