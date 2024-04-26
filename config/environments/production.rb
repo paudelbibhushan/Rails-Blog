@@ -16,6 +16,9 @@ Rails.application.configure do
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
+  config.secret_key = 'f170d35040f74a083376b4a3c0a581a8c536696370668417c1b75edf517067d011d91d2f39d1d6d6658460a16af199df441108521bfe0bd4b49333f4797cfc12'
+
+
   # Ensures that a master key has been made available in ENV["RAILS_MASTER_KEY"], config/master.key, or an environment
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
