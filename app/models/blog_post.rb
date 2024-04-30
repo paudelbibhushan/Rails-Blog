@@ -1,4 +1,7 @@
 class BlogPost < ApplicationRecord
+    has_rich_text :content
+
+
     validates :title , presence: true
     validates :body , presence: true
 
@@ -18,7 +21,7 @@ class BlogPost < ApplicationRecord
     
     def scheduled?
         published_at? && published_at > Time.current
-        end
+    end
 
 end
 
