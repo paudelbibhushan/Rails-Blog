@@ -27,7 +27,10 @@ class BlogPostsController < ApplicationController
             render :new , status: :unprocessable_entity
         end
     end
-
+      
+  
+    
+      
     def edit
     end
     
@@ -46,6 +49,9 @@ class BlogPostsController < ApplicationController
         redirect_to root_path
     end
  
+
+    
+
     private
     
     def blog_post_params

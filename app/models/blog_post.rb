@@ -1,9 +1,9 @@
 class BlogPost < ApplicationRecord
     has_rich_text :content
 
-
     validates :title , presence: true
     validates :content , presence: true
+    validates :published_at , presence: true
 
     scope :sorted, -> {order(arel_table[:published_at].desc.nulls_last).order(updated_at: :desc) }
     scope :draft, -> {where(published_at: nil) }
@@ -22,6 +22,7 @@ class BlogPost < ApplicationRecord
     def scheduled?
         published_at? && published_at > Time.current
     end
+    
 
 end
 
